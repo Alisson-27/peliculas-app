@@ -1,0 +1,26 @@
+[
+{
+    "peliculaId": 1,
+    "usuario": "Ana",
+    "comentario": "Excelente película, muy entretenida y con buena historia.",
+    "rating": 5
+},
+{
+    "peliculaId": 1,
+    "usuario": "Luis",
+    "comentario": "Me gustó bastante, buenas escenas de acción.",
+    "rating": 4
+},
+{
+    "peliculaId": 2,
+    "usuario": "María",
+    "comentario": "Muy romántica y divertida.",
+    "rating": 5
+},
+{
+    "peliculaId": 3,
+    "usuario": "Carlos",
+    "comentario": "Visualmente impresionante.",
+    "rating": 4
+}
+]

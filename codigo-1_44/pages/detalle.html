@@ -36,116 +36,166 @@
 
 <body>
 
-  <div class="container py-5">
+<div class="container py-5">
 
-    <!-- TITULO -->
-    <div class="text-center mb-4">
-      <h1 id="titulo" class="fw-bold"></h1>
+  <!-- TITULO -->
+  <div class="text-center mb-4">
+    <h1 id="titulo" class="fw-bold"></h1>
 
-      <div class="alert alert-info mt-3">
-        🎬 Disfruta del tráiler oficial de la película
-      </div>
+    <div class="alert alert-info mt-3">
+      🎬 Disfruta del tráiler oficial de la película
     </div>
-
-    <!-- TRAILER -->
-    <div class="ratio ratio-16x9 mb-4">
-      <iframe id="trailer" src="" allowfullscreen></iframe>
-    </div>
-
-    <!-- CARD -->
-    <div class="card mb-4 shadow-lg">
-      <div class="row g-0">
-
-        <div class="col-md-4">
-          <img id="poster" src="" class="img-fluid" alt="poster">
-        </div>
-
-        <div class="col-md-8">
-          <div class="card-body">
-
-            <h5 class="card-title">Sinopsis</h5>
-            <p id="sinopsis"></p>
-
-            <h6>Género:</h6>
-            <span id="genero" class="badge bg-secondary"></span>
-
-            <div class="mt-3">
-              <h6>Precios:</h6>
-              <span id="precioEstreno" class="badge bg-warning text-dark"></span>
-              <span id="precioNormal" class="badge bg-success ms-2"></span>
-            </div>
-
-          </div>
-        </div>
-
-      </div>
-    </div>
-
-    <!-- BOTON -->
-    <div class="text-center">
-      <a href="../index.html" class="btn btn-light">
-        ⬅ Volver al inicio
-      </a>
-    </div>
-
   </div>
 
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+  <!-- TRAILER -->
+  <div class="ratio ratio-16x9 mb-4">
+    <iframe id="trailer" src="" allowfullscreen></iframe>
+  </div>
 
-  <script>
-    $(function () {
+  <!-- CARD -->
+  <div class="card mb-4 shadow-lg">
+    <div class="row g-0">
 
-      const urlParams = new URLSearchParams(window.location.search);
-      const id = urlParams.get("id");
+      <div class="col-md-4">
+        <img id="poster" src="" class="img-fluid" alt="poster">
+      </div>
 
-      $.ajax({
-        url: "../data/peliculas.json",
-        method: "GET",
-        dataType: "json",
+      <div class="col-md-8">
+        <div class="card-body">
 
-        success: function (peliculas) {
+          <h5 class="card-title">Sinopsis</h5>
+          <p id="sinopsis"></p>
 
-          const peli = peliculas.find(p => p.id == id);
+          <h6>Género:</h6>
+          <span id="genero" class="badge bg-secondary"></span>
 
-          if (!peli) {
-            $("body").html(`
-              <div class="container text-center py-5">
-                <div class="alert alert-danger">
-                  Película no encontrada
-                </div>
-                <a href="../index.html" class="btn btn-light">Volver</a>
-              </div>
-            `);
-            return;
-          }
+          <hr>
 
-          $("#titulo").text(peli.titulo);
-          $("#poster").attr("src", "../img/" + peli.imagen);
-          $("#sinopsis").text(peli.sinopsis);
-          $("#trailer").attr("src", peli.trailer);
+          <h6>Precios:</h6>
+          <span id="precioEstreno" class="badge bg-warning text-dark"></span>
+          <span id="precioNormal" class="badge bg-success ms-2"></span>
 
-          $("#genero").text(peli.genero.join(" / "));
+          <hr>
 
-          $("#precioEstreno").text("Estreno: $" + peli.precios.estreno);
-          $("#precioNormal").text("Normal: $" + peli.precios.normal);
+          <!-- ⭐ RESEÑAS -->
+          <h4>⭐ Reseñas</h4>
+          <div id="resenas"></div>
 
-        },
+        </div>
+      </div>
 
-        error: function () {
-          $("body").html(`
-            <div class="container text-center py-5">
-              <div class="alert alert-danger">
-                Error al cargar la película
-              </div>
-              <a href="../index.html" class="btn btn-light">Volver</a>
+    </div>
+  </div>
+
+  <!-- BOTON -->
+  <div class="text-center">
+    <a href="../index.html" class="btn btn-light">
+      ⬅ Volver al inicio
+    </a>
+  </div>
+
+</div>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+
+<script>
+$(function () {
+
+  const urlParams = new URLSearchParams(window.location.search);
+  const id = urlParams.get("id");
+
+  $.ajax({
+    url: "../data/peliculas.json",
+    method: "GET",
+    dataType: "json",
+
+    success: function (peliculas) {
+
+      const peli = peliculas.find(p => p.id == id);
+
+      if (!peli) {
+        $("body").html(`
+          <div class="container text-center py-5">
+            <div class="alert alert-danger">
+              Película no encontrada
             </div>
-          `);
-        }
+            <a href="../index.html" class="btn btn-light">Volver</a>
+          </div>
+        `);
+        return;
+      }
 
-      });
+      $("#titulo").text(peli.titulo);
+      $("#poster").attr("src", "../img/" + peli.imagen);
+      $("#sinopsis").text(peli.sinopsis);
+      $("#trailer").attr("src", peli.trailer);
+
+      $("#genero").text(peli.genero.join(" / "));
+
+      $("#precioEstreno").text("Estreno: $" + peli.precios.estreno);
+      $("#precioNormal").text("Normal: $" + peli.precios.normal);
+
+      // ⭐ CARGAR RESEÑAS
+      cargarResenas(peli.id);
+
+    },
+
+    error: function () {
+      $("body").html(`
+        <div class="container text-center py-5">
+          <div class="alert alert-danger">
+            Error al cargar la película
+          </div>
+          <a href="../index.html" class="btn btn-light">Volver</a>
+        </div>
+      `);
+    }
+
+  });
+
+  // ⭐ FUNCIÓN RESEÑAS
+  function cargarResenas(idPelicula) {
+
+    $.ajax({
+      url: "../data/reseñas.json",
+      method: "GET",
+      dataType: "json",
+
+      success: function (resenas) {
+
+        let filtradas = resenas.filter(r => r.peliculaId == idPelicula);
+
+        let html = "";
+
+        filtradas.forEach(function (r) {
+
+          let estrellas = "⭐".repeat(r.rating);
+
+          html += `
+            <div class="card mb-2">
+              <div class="card-body">
+
+                <h6>${r.usuario}</h6>
+
+                <p>${estrellas}</p>
+
+                <p>${r.comentario}</p>
+
+              </div>
+            </div>
+          `;
+        });
+
+        $("#resenas").html(html);
+
+      }
 
     });
-  </script>
+
+  }
+
+});
+</script>
 
 </body>
 </html>

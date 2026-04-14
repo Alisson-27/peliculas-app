@@ -2,7 +2,7 @@ $(document).ready(function () {
 
   $("#spinner").show();
 
-  let peliculasGlobal = []; // 👈 para buscador/filtros
+  let peliculasGlobal = [];
 
   $.ajax({
     url: "data/peliculas.json",
@@ -12,7 +12,6 @@ $(document).ready(function () {
     success: function (peliculas) {
 
       peliculasGlobal = peliculas;
-
       renderPeliculas(peliculas);
 
     },
@@ -31,7 +30,7 @@ $(document).ready(function () {
 
   });
 
-  // 🎬 FUNCIÓN RENDER
+  // 🎬 RENDER
   function renderPeliculas(peliculas) {
 
     let html = "";
@@ -74,6 +73,11 @@ $(document).ready(function () {
                 Ver más 🎬
               </a>
 
+              <button class="btn btn-danger w-100 mt-2 ver-trailer"
+                data-trailer="${peli.trailer}">
+                Ver tráiler 🎬
+              </button>
+
             </div>
           </div>
         </div>
@@ -102,22 +106,40 @@ $(document).ready(function () {
 
   });
 
-});
+  // 🎭 FILTRO GÉNERO
+  $(document).on("change", "#filtroGenero", function () {
 
-$(document).on("change", "#filtroGenero", function () {
+    let genero = $(this).val();
 
-  let genero = $(this).val();
+    $(".pelicula-item").each(function () {
 
-  $(".pelicula-item").each(function () {
+      let texto = $(this).text();
 
-    let texto = $(this).text();
+      if (genero === "todos" || texto.includes(genero)) {
+        $(this).show();
+      } else {
+        $(this).hide();
+      }
 
-    if (genero === "todos" || texto.includes(genero)) {
-      $(this).show();
-    } else {
-      $(this).hide();
-    }
+    });
 
+  });
+
+  // 🎬 MODAL TRAILER
+  $(document).on("click", ".ver-trailer", function () {
+
+    let video = $(this).data("trailer");
+
+    $("#trailerVideo").attr("src", video + "?autoplay=1");
+
+    let modal = new bootstrap.Modal(document.getElementById("trailerModal"));
+    modal.show();
+
+  });
+
+  // 🧹 limpiar video al cerrar modal
+  $("#trailerModal").on("hidden.bs.modal", function () {
+    $("#trailerVideo").attr("src", "");
   });
 
 });
