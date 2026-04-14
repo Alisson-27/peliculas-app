@@ -2,40 +2,74 @@
 <html lang="es">
 <head>
   <meta charset="UTF-8">
-  <title>Películas en Cartelera</title>
+  <title>CinePlus | Cartelera</title>
   <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- Bootstrap -->
   <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet">
+
+  <!-- Google Font -->
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;700&display=swap" rel="stylesheet">
+
   <link rel="stylesheet" href="css/style.css">
+
 </head>
+
 <body>
-  <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-    <div class="container-fluid">
-      <a class="navbar-brand" href="#">CinePlus</a>
-      <div class="collapse navbar-collapse">
-        <ul class="navbar-nav ms-auto">
-          <li class="nav-item"><a class="nav-link active" href="index.html">Inicio</a></li>
-          <li class="nav-item"><a class="nav-link" href="pages/contacto.html">Contacto</a></li>
-        </ul>
-      </div>
+
+<!-- NAV -->
+<nav class="navbar navbar-dark bg-dark">
+  <div class="container">
+
+    <a class="navbar-brand fw-bold text-warning" href="index.html">
+      🎬 CinePlus
+    </a>
+
+    <div>
+      <a class="nav-link d-inline text-white" href="index.html">Inicio</a>
+      <a class="nav-link d-inline text-white" href="#lista-peliculas">Cartelera</a>
+      <a class="nav-link d-inline text-white" href="pages/contacto.html">Contacto</a>
     </div>
-  </nav>
 
-  <header class="bg-primary text-white text-center p-4">
-    <h1>Películas en Cartelera</h1>
-    <p class="lead">Consulta los estrenos y favoritos del público</p>
-  </header>
+  </div>
+</nav>
 
-  <main class="container py-4">
-    <div class="row" id="lista-peliculas">
-      <!-- Películas cargadas dinámicamente -->
-    </div>
-  </main>
+<!-- HERO CINE -->
+<header class="hero-cine text-white text-center d-flex align-items-center justify-content-center">
+  <div>
+    <h1 class="display-3 fw-bold">CinePlus</h1>
+    <p class="lead">Las mejores películas en cartelera 🍿</p>
+  </div>
+</header>
 
-  <footer class="bg-dark text-center text-white py-3">
-    <small>&copy; 2024 CinePlus. Todos los derechos reservados.</small>
-  </footer>
+<!-- CONTENIDO -->
+<main class="container py-5">
+<div id="spinner" class="text-center mb-3" style="display:none;">
+  <div class="spinner-border text-warning"></div>
+  <p class="mt-2 text-white">🎬 Cargando películas...</p>
+</div>
+  <div class="mb-4">
+  <input type="text" id="buscar" class="form-control"
+         placeholder="🔍 Buscar película...">
+</div>
+<select id="filtroGenero" class="form-select mb-4">
+  <option value="todos">🎬 Todos</option>
+  <option value="Acción">Acción</option>
+  <option value="Romance">Romance</option>
+  <option value="Drama">Drama</option>
+  <option value="Aventura">Aventura</option>
+</select>
+  <div class="row g-4" id="lista-peliculas"></div>
 
-  <script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
-  <script src="js/app.js"></script>
+</main>
+
+<!-- FOOTER -->
+<footer class="bg-dark text-white text-center py-3">
+  <small>© 2026 CinePlus</small>
+</footer>
+
+<script src="https://code.jquery.com/jquery-3.6.4.min.js"></script>
+<script src="js/app.js"></script>
+
 </body>
 </html>

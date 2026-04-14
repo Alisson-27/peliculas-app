@@ -1,26 +1,67 @@
 [
   {
     "id": 1,
-    "titulo": "Dune",
-    "imagen": "dune.jpg",
-    "genero": "Aventura",
-    "sinopsis": "Un joven emprende una misión para salvar su mundo.",
-    "trailer": "https://www.youtube.com/embed/mSY_NbSmaUI"
+    "titulo": "Spiderman",
+    "imagen": "spiderman.jpg",
+    "genero": ["Acción", "Aventura"],
+    "sinopsis": "Peter Parker es un estudiante normal hasta que una araña modificada genéticamente lo muerde durante una excursión escolar. A partir de ese momento, adquiere habilidades sobrehumanas como fuerza, agilidad y la capacidad de adherirse a las paredes. Mientras intenta entender sus nuevos poderes, también debe enfrentar la pérdida de su tío Ben, quien le enseña una lección que cambiará su vida: con gran poder viene una gran responsabilidad. Ahora, Peter deberá equilibrar su vida como estudiante y su destino como héroe, enfrentándose a enemigos peligrosos que amenazan la ciudad de Nueva York.",
+    "trailer": "https://www.youtube.com/embed/t06RUxPbp_c",
+    "estreno": "2024-06-10",
+    "precios": {
+      "estreno": 5,
+      "normal": 3
+    }
   },
   {
     "id": 2,
-    "titulo": "50 primeras citas",
-    "imagen": "50-primeras-citas.jpg",
-    "genero": "Comedia",
-    "sinopsis": "Henry se enamora de Lucy, una mujer con pérdida de memoria a corto plazo.",
-    "trailer": "https://www.youtube.com/embed/17KJk3ErIx0"
+    "titulo": "A todos los chicos de los que me enamoré",
+    "imagen": "chicos.jpg",
+    "genero": ["Romance", "Comedia"],
+    "sinopsis": "Lara Jean es una adolescente que escribe cartas secretas a todos los chicos de los que se ha enamorado, guardándolas en una caja sin intención de enviarlas. Sin embargo, su vida cambia por completo cuando esas cartas son enviadas misteriosamente, obligándola a enfrentarse a sus antiguos amores y a descubrir lo que realmente siente por ellos. Entre situaciones divertidas, incómodas y románticas, Lara Jean aprenderá sobre el amor, la honestidad y el crecimiento personal.",
+    "trailer": "https://www.youtube.com/embed/3gAKmD51ML4",
+    "estreno": "2023-11-20",
+    "precios": {
+      "estreno": 4,
+      "normal": 2
+    }
   },
   {
     "id": 3,
-    "titulo": "Batman Caballero de la Noche",
-    "imagen": "batman-caballero-de-la-noche.webp",
-    "genero": "Acción",
-    "sinopsis": "La película comienza con el violento robo de uno de los bancos de la mafia por una banda de payasos.",
-    "trailer": "https://www.youtube.com/embed/dzQtWkpc2-c"
+    "titulo": "El Lago de los Cisnes",
+    "imagen": "cisnes.jpg",
+    "genero": ["Drama", "Fantasía"],
+    "sinopsis": "En un reino mágico, una joven princesa es transformada en un cisne por un hechizo oscuro lanzado por un malvado mago. Solo durante la noche puede recuperar su forma humana. Un príncipe valiente descubre su historia y se enamora de ella, pero deberá enfrentarse a engaños y fuerzas oscuras para romper la maldición. Esta historia mezcla amor, traición y magia en un clásico eterno.",
+    "trailer": "https://www.youtube.com/embed/3xv1kG02Rec",
+    "estreno": "2022-09-15",
+    "precios": {
+      "estreno": 6,
+      "normal": 3
+    }
+  },
+  {
+    "id": 4,
+    "titulo": "El Rey León",
+    "imagen": "reyleonn.jpg",
+    "genero": ["Animación", "Aventura"],
+    "sinopsis": "Simba, un joven león heredero del trono, vive feliz en las Tierras del Reino hasta que una tragedia lo obliga a huir. Perdido y lleno de culpa, crece lejos de su hogar mientras aprende a vivir sin responsabilidades. Sin embargo, su pasado lo alcanza y deberá regresar para enfrentar a su tío Scar y reclamar su lugar como rey legítimo, descubriendo el verdadero significado del ciclo de la vida.",
+    "trailer": "https://www.youtube.com/embed/bjJvvrKl83M",
+    "estreno": "2024-01-10",
+    "precios": {
+      "estreno": 5,
+      "normal": 3
+    }
+  },
+  {
+    "id": 5,
+    "titulo": "Prueba de Fuego",
+    "imagen": "prueba-fuego.jpg",
+    "genero": ["Acción", "Suspenso"],
+    "sinopsis": "Un grupo de bomberos altamente entrenados enfrenta incendios extremos mientras arriesgan sus vidas para salvar a personas atrapadas. Entre emergencias peligrosas y decisiones en segundos, uno de ellos comienza a cuestionar su vida personal y su fe. Cuando un gran incendio amenaza toda la ciudad, el equipo deberá superar sus diferencias y trabajar juntos para evitar una tragedia mayor, demostrando el verdadero significado del valor, la entrega y el sacrificio.",
+    "trailer": "https://www.youtube.com/embed/-p0JR2c--5E",
+    "estreno": "2025-03-01",
+    "precios": {
+      "estreno": 7,
+      "normal": 4
+    }
   }
 ]
