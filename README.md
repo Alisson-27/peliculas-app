@@ -57,7 +57,7 @@ Permite visualizar una cartelera de películas con información detallada, preci
 
 ## 🔗 Repositorio
 
-https://github.com/TU-USUARIO/peliculas-app  
+https://github.com/Alisson-27/peliculas-app  
 
 ---
 
