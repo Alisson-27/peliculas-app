@@ -105,15 +105,19 @@ $(document).ready(function () {
 });
 
 $(document).on("change", "#filtroGenero", function () {
+
   let genero = $(this).val();
 
-  $(".card").each(function () {
+  $(".pelicula-item").each(function () {
+
     let texto = $(this).text();
 
     if (genero === "todos" || texto.includes(genero)) {
-      $(this).parent().show();
+      $(this).show();
     } else {
-      $(this).parent().hide();
+      $(this).hide();
     }
+
   });
+
 });
