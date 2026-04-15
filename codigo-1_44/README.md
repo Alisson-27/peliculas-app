@@ -40,4 +40,4 @@ Aplicación web dinámica de películas desarrollada con HTML, CSS, Bootstrap, j
 ---
 
 ## 🔗 Repositorio
-https://github.com/TU-USUARIO/peliculas-app
+https://github.com/Alisspn-27/peliculas-app
